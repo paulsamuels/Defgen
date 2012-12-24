@@ -1,0 +1,1 @@
+require 'defgen/generators/template/template_generator'
