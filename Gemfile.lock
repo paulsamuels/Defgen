@@ -2,7 +2,6 @@ PATH
   remote: .
   specs:
     defgen (0.0.1)
-      plist
       xcodeproj
 
 GEM
@@ -27,7 +26,6 @@ GEM
     lumberjack (1.0.2)
     method_source (0.8.1)
     multi_json (1.5.0)
-    plist (3.1.0)
     pry (0.9.10)
       coderay (~> 1.0.5)
       method_source (~> 0.8)
