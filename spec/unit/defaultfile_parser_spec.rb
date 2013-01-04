@@ -40,7 +40,23 @@ module Defgen
     end
     
     it "can handle a custom getter" do
-      property = defaultfile_parser.parse("bool 'valid', :getter => 'isValid'")
+      property = nil
+      
+      expect do
+        property = defaultfile_parser.parse("bool 'valid', :getter => 'isValid'").first
+      end.to_not raise_error
+      
+      property.attributes.getter.should eq('isValid')
+    end
+    
+    it "can handle overriding ownership" do
+      property = nil
+      
+      expect do
+        property = defaultfile_parser.parse("array 'myCollection', :ownership => :weak").first
+      end.to_not raise_error
+      
+      property.attributes.ownership.should eq(:weak)
     end
   end
 end

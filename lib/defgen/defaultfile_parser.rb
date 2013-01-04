@@ -26,7 +26,7 @@ module Defgen
           property.object_setter  = object_setter
           property.message_prefix = prefix
           property.objc_type      = objc_type
-          attributes.ownership    = ownership
+          attributes.ownership    = options[:ownership] || ownership
           attributes.getter       = options[:getter]
           
           @properties << property

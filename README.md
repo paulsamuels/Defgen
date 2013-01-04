@@ -143,7 +143,11 @@ This will generate the templates in your current project so that you can edit as
 
 ##Wish List
 
+<<<<<<< HEAD
 - Support for providing custom getter e.g. `(nonatomic, strong, getter=isValid)`
+=======
+- Dry runs to show what will be generated
+>>>>>>> Allow overriding ownership by passing :ownership => :weak as an option
 - Support for overriding ownership qualifiers
 
 ##Licence
