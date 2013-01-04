@@ -143,7 +143,7 @@ This will generate the templates in your current project so that you can edit as
 
 ##Wish List
 
-- Support for provising customer getter e.g. `(nonatomic, strong, getter=isValid)`
+- Support for providing custom getter e.g. `(nonatomic, strong, getter=isValid)`
 - Support for overriding ownership qualifiers
 
 ##Licence
