@@ -11,10 +11,9 @@ module Defgen
       
     desc "parse", 'Parse a "Defaultfile" and modify the Xcodeproj'
     method_option :filename, default: 'Defaultfile', 
-    aliases: '-f',
-    desc:    'Specify the input file path'
+                             aliases: '-f',
+                             desc:    'Specify the input file path'
     def parse
-      
       path = Dir['*.xcodeproj'].first
       
       if path.nil?

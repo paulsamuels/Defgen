@@ -5,6 +5,7 @@ module Defgen
         
     def initialize
       self.attributes = Attributes.new
+      self.attributes.property = self
       yield self, attributes if block_given?
     end
         

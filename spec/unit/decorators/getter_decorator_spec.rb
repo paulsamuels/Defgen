@@ -27,5 +27,10 @@ module Defgen
       @property.prefix = 'PS'
       decorator.prefix.should eq('ps')
     end
+    
+    it "uses a custom getter" do
+      @property.attributes.getter = 'isValid'
+      decorator.parameter.should eq('isValid')
+    end
   end
 end

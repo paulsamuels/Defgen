@@ -38,5 +38,9 @@ module Defgen
         property.attributes.ownership.should eq(ownership)
       end
     end
+    
+    it "can handle a custom getter" do
+      property = defaultfile_parser.parse("bool 'valid', :getter => 'isValid'")
+    end
   end
 end

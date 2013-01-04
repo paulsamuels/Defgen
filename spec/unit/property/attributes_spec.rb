@@ -6,7 +6,9 @@ module Defgen
     describe Attributes do
       subject(:attributes) { Attributes.new }
       
+      it { should respond_to :property }
       it { should respond_to :ownership }
+      it { should respond_to :getter }
                         
       Attributes::VALID_OWNERSHIPS.each do |semantic|
         it "creates the predicate method #{semantic}?" do
@@ -42,6 +44,13 @@ module Defgen
           attributes.ownership = nil
           attributes.to_s.should eq('(nonatomic)')
         end
+      end
+      
+      it "uses a custom getter" do
+        FakeProperty = Struct.new(:prefix)
+        attributes.property = FakeProperty.new('ps')
+        attributes.getter = 'isValid'
+        attributes.to_s.should eq('(nonatomic, strong, getter=ps_isValid)')
       end
     end
   end
