@@ -49,6 +49,44 @@ The DSL should be pretty self explanatory call the `type` of the object followed
 
 ###Customisation
 
+Sometimes you want to have a different getter so you can follow conventions like having a boolean `isValid` and `setValid:`, which sounds nicer than `isValid` and `setIsValid:`
+
+Simple...
+
+    bool 'valid', :getter => 'isValid'
+  
+which generates
+
+    // NSUserDefaults+PASProperties.h
+    
+    @property (nonatomic, assign, getter=pas_isValid) BOOL pas_valid;
+    
+    // NSUserDefaults+PASProperties.m
+    
+    - (BOOL)pas_isValid;
+    {
+      return [self boolForKey:PASValid];
+    }
+
+    - (void)setPas_valid:(BOOL)isValid;
+    {
+      [self setBool:isValid forKey:PASValid];
+    }
+    
+---
+
+If you don't like my choice of using `strong` for object properties you can override this in the same way
+
+    array 'colours', :ownership => :weak
+    
+which generates
+
+    // NSUserDefaults+PASProperties.h
+    
+    @property (nonatomic, weak) NSArray *pas_colours;
+
+###Advanced Customisation
+
 If you don't like the supplied boiler plate then you can tweak it.
 
 ####Step 1. Call generate the stubs
@@ -143,12 +181,7 @@ This will generate the templates in your current project so that you can edit as
 
 ##Wish List
 
-<<<<<<< HEAD
-- Support for providing custom getter e.g. `(nonatomic, strong, getter=isValid)`
-=======
 - Dry runs to show what will be generated
->>>>>>> Allow overriding ownership by passing :ownership => :weak as an option
-- Support for overriding ownership qualifiers
 
 ##Licence
 
