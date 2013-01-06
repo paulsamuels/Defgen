@@ -8,6 +8,8 @@ It couldn't be simpler...
 
 Boiler plate is boring so why write it? Using Defgen we can have the computer write it for us. Supply a `Defaultfile` written in the super simple DSL and `defgen` will do the rest.
 
+![Image Alt](https://raw.github.com/paulsamuels/Defgen/master/defgen.gif)
+
 ##Features
 
 This is firmly in the realms of Proof of Concept at the minute but.
